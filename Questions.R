@@ -5,6 +5,7 @@ rm(list = ls())
 gc()
 
 library(crayon)
+library(dplyr)
 
 ## List of students
 students <- c("Pinja", "Vikke", "Marjaana", "Taavetti", "Niko", "Nicolina", 
@@ -88,5 +89,15 @@ Answer_2 <- function(answer = "O"){
         "Please try again with a valid input (for example a) or b))")
     
 }
+
+##~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+##      3. Penguin prep
+##~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+penguins_altered <- palmerpenguins::penguins %>% 
+  mutate(bill_length_mm = case_when(sex == "male" & island == "Torgersen" ~ 
+                                    bill_length_mm/25.4,
+                                    TRUE ~ bill_length_mm))
+
+
 
 
