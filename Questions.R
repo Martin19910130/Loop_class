@@ -39,7 +39,7 @@ Answer_1 <- function(answer = "K") {
         "You would indeed get 0.3333 as output\n.",
         "Try again. 😎")
   if(answer %in% c("c", "C", "c)", "C)"))
-    cat(bold("Nailed it!"))
+    cat(bold("Nailed it! 🎉"))
   if(answer %in% c("d", "D", "d)", "D)"))
     cat("Well, fair enough...")
   else
@@ -53,7 +53,7 @@ Answer_1 <- function(answer = "K") {
 Question_2 <- function(){
   cat("What happens if I run the following code:\n\n", 
       bold("   for(r_class in students)
-           paste(r_class, loves R)\n\n"),
+           print(paste(r_class, loves R))\n\n"),
       "You can see what is stored in the vector students by running:\n", 
       bold("\n                    students\n\n"), 
       "a) Every studend expresses love for R.\n", 
@@ -61,4 +61,32 @@ Question_2 <- function(){
       "c) It prints six times r_class.\n",
       "d) It will result in an error.\n")
 }
+
+Answer_2 <- function(answer = "O"){
+  if(answer %in% c("a)", "A)", "a", "A"))
+    cat(" That was a little bit mean. Technically you are correct,\n",
+        "however the loop will break because of:", 
+        bold("loves R.\n"),
+        "R can not find anything that matches:",
+        bold("loves R\n"), 
+        "as it needs to be a character in order to work.\n",
+        "So this code will actually return an error.\n",
+        "In anyway you still grasp how loops work.")
+  if(answer %in% c("b)", "B)", "b", "B"))
+    cat("😢 We are heart broken.\n", 
+        "Now might be a good time to tell you those answers are stored and visible for us after this class.\n", 
+        "Thank you for your honesty... we remember your name.\n", 
+        "This was a joke... No data is stored and we can not see your answers.")
+  if(answer %in% c("c)", "C)", "c", "C"))
+    cat(cat(bold("Wrong\n"), 
+                "No, the r_class operator is actually replaced by something each iteration.\n", 
+                "Try again. 😎"))
+  if(answer %in% c("d)", "D)", "d", "D"))
+    cat(bold("Nailed it! 🎉"))
+  else
+    cat("Your input does not match any expected input.\n",
+        "Please try again with a valid input (for example a) or b))")
+    
+}
+
 
