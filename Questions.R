@@ -4,17 +4,25 @@
 rm(list = ls())
 gc()
 
+library(crayon)
+
+## List of students
+students <- c("Pinja", "Vikke", "Marjaana", "Taavetti", "Niko", "Nicolina", 
+              "Veera", "Milla", "Konsta", "Nette", "Lempi", "Sini", "Laura", 
+              "Andreas", "Veera", "Mikko", "Jessica", "Kaisla", "Ida", 
+              "Netta", "Nea", "Helena", "Saara", "Noora", "Anuka")
+
 ##~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 ##          Question 1, Simple for loop----
 ##~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 Question_1 <- function() {
   cat(
-    "What happens if I change the example as follows:\n",
-    bold("\n     for(i in 20:60)\n\n"),
-    "a) Nothing changes as I still define i\n",
-    "b) I will display 0.333 as 20/60 is 0.3333\n",
-    "c) The loop will now print the number range 20-60\n",
-    "d) How am I supposed to know? I just run it\n"
+    "What happens if I change the example as follows:\n\n",
+    bold("     for(i in 20:60)\n\n"),
+    "a) Nothing changes as I still define. i\n",
+    "b) I will display 0.333 as 20/60 is 0.3333.\n",
+    "c) The loop will now print the number range 20-60.\n",
+    "d) How am I supposed to know? I just run it.\n"
   )
 }
 
@@ -38,3 +46,19 @@ Answer_1 <- function(answer = "K") {
     cat("Your input does not match any expected input.\n",
         "Please try again with a valid input (for example a) or b))")
 }  
+
+##~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+##      Question 2 -----
+##~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+Question_2 <- function(){
+  cat("What happens if I run the following code:\n\n", 
+      bold("   for(r_class in students)
+           paste(r_class, loves R)\n\n"),
+      "You can see what is stored in the vector students by running:\n", 
+      bold("\n                    students\n\n"), 
+      "a) Every studend expresses love for R.\n", 
+      "b) I hate R!\n", 
+      "c) It prints six times r_class.\n",
+      "d) It will result in an error.\n")
+}
+
