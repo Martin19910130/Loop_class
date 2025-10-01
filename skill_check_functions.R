@@ -8,7 +8,7 @@ for(x in "crayon")
     install.packages("crayon")
   library(crayon)
 }
-
+rm("x")
 
 ## See if packages are installed
 install_check <- function(x){
@@ -73,13 +73,23 @@ skill_check2 <- function(x)
 
 ## Check if they created a ID column with 1:124, I abuse that the mean is 62.5
 skill_check3 <- function(x){
-  if(mean(x$ID) != 62.5)
-    cat("You do not have ID's from 1 to 124. Please redo!")
-  else if(mean(x$ID) == 62.5)
-    cat("Nice, please move on to the next task.")
+  # Check if ID column exists
+  if(!"ID" %in% names(x)){
+    cat("❌ No column named 'ID' found.\n")
+    return()
+  }
   
-  else
-    cat("I can not say what is wrong but something is off, please ask us.\n", 
-        "This message also shows automatically if the ID column is a character column.")
+  # Check if ID column is numeric
+  if(!is.numeric(x$ID)){
+    cat("❌ The ID column is not numeric. Please fix it.\n")
+    return()
+  }
+  
+  # Check if IDs are exactly 1:124
+  if(identical(sort(unique(x$ID)), 1:124)){
+    cat("✅ Nice, your IDs are exactly 1 to 124. Please move on to the next task.\n")
+  } else {
+    cat("⚠️ Your IDs are not exactly 1 to 124. Please redo.\n")
+  }
 }
 
