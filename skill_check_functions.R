@@ -63,11 +63,11 @@ skill_check2 <- function(x)
   if(is.character(x$thorax))
     cat("Are you sure you full filled task 4", 
         bold("and"), "task 5? I would not ask if you did.")
-  if(is.na(x[15, 1]))
+  else if(is.na(x[15, 1]))
     cat(" You did change something, unfortunatly you created an NA and lost information.\n",
         "Sorry,", bold("load"), "the data again to R and try again.\n",
         "That means rerun the read.csv()")
-  if(x[15, 1] == 0.84)
+  else if(x[15, 1] == 0.84)
     cat("Yes! Great move on to the next task!")
 }
 
